@@ -1,0 +1,634 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Fragment Mono", monospace;
+  color: aliceblue;
+  background: linear-gradient(#000, rgb(88, 8, 76));
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 90px;
+  background-color: #000;
+  z-index: 1;
+}
+
+header .second-logo {
+  font-size: 30px;
+  text-decoration: none;
+  color: aliceblue;
+}
+
+header .title-logo {
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+}
+
+header ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+header ul li {
+  margin-right: 30px;
+}
+
+header ul li a {
+  padding: 6px 15px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: aliceblue;
+}
+
+header ul li a:hover {
+  background-color: rgb(144, 126, 225);
+  color: #000;
+}
+
+.close-icon {
+  display: none;
+}
+
+.burger-menu {
+  font-size: 50px;
+  display: none;
+  margin-right: 30px;
+}
+
+.header-title {
+  font-size: 75px;
+}
+
+.explor-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.explor-cards img {
+  width: 500px;
+  height: 500px;
+}
+
+.explor-cards-v1 img {
+  width: 500px;
+  height: 500px;
+}
+
+.explor-cards-v1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.explor h1 {
+  color: rgb(144, 126, 225);
+  font-size: 40px;
+  padding-bottom: 30px;
+}
+
+.container {
+  padding-top: 130px;
+}
+
+.info .h1 {
+  font-size: 30px;
+  padding-bottom: 30px;
+  color: rgba(131, 238, 255, 255);
+}
+
+.contact-open {
+  width: 80px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(144, 126, 225);
+  color: #000;
+}
+
+.contact-open:hover {
+  background-color: #000;
+  color: aliceblue;
+  transition: ease-in 0.2s;
+}
+
+.contact-close {
+  border: none;
+  cursor: pointer;
+  background: none;
+  color: aliceblue;
+}
+
+.contact-close:hover {
+  background-color: aliceblue;
+  color: #000;
+  transition: ease-in 0.2s;
+  border-radius: 20%;
+}
+
+.inputs {
+  position: fixed;
+  display: none;
+  top: 55%;
+  background: linear-gradient(#000, rgb(88, 8, 76));
+  border-radius: 15px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.active {
+  display: flex;
+}
+
+.input {
+  margin-top: 20px;
+  width: 200px;
+  height: 50px;
+  display: block;
+  border-radius: 15px;
+  text-align: center;
+  border: 3px solid rgb(144, 126, 225);
+}
+
+.input-message {
+  margin-top: 20px;
+  width: 200px;
+  border-radius: 15px;
+  text-align: center;
+  border: 3px solid rgb(144, 126, 225);
+  display: block;
+}
+
+.input-submit {
+  cursor: pointer;
+  border-radius: 15px;
+  border: none;
+  margin-top: 20px;
+  width: 200px;
+  height: 30px;
+  background-color: rgb(144, 126, 225);
+  color: #000;
+  margin-left: 3px;
+  margin-bottom: 20px;
+}
+
+.input-submit:hover {
+  background-color: #000;
+  color: aliceblue;
+  transition: ease-in 0.2s;
+}
+
+.news-email {
+  padding-left: 10px;
+  width: 250px;
+  height: 40px;
+  border: none;
+  border-radius: 15px;
+}
+
+.btn-submit {
+  width: 80px;
+  height: 40px;
+  border: none;
+  border-radius: 15px;
+  background-color: rgb(144, 126, 225);
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  color: aliceblue;
+  background-color: #000;
+  transition: ease-in 0.2s;
+}
+
+.contact-section {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.contact-us {
+  width: 40%;
+}
+
+.newsletter {
+  width: 30%;
+}
+
+.top-collections {
+  text-align: center;
+  font-size: 30px;
+}
+
+.top-nfts {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nft {
+  text-align: center;
+  border-radius: 40px;
+  margin: 0 20px;
+}
+
+.nft img {
+  width: 200px;
+  height: 300px;
+  border-radius: 40px;
+}
+
+.contact-section {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.contact-section h1 {
+  margin-bottom: 30px;
+}
+
+.contact-section p {
+  margin-bottom: 30px;
+}
+
+.footer {
+  background-color: #000;
+  text-align: center;
+  align-items: center;
+  height: 120px;
+  padding-top: 20px;
+}
+
+.social {
+  padding-bottom: 20px;
+  font-size: 35px;
+  background-color: #000;
+}
+
+.social i {
+  color: aliceblue;
+}
+
+.copyright {
+  background-color: #000;
+  color: aliceblue;
+}
+
+/***********   Collections page   ***********/
+h1.title {
+  text-align: center;
+  font-size: xx-large;
+  margin-bottom: 30px;
+}
+
+.meta {
+  text-align: center;
+  font-size: large;
+  padding-top: 50px;
+}
+
+h4 {
+  text-align: center;
+  font-size: xx-large;
+  color: aqua;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 50px;
+  justify-content: space-around;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  justify-content: space-between;
+  height: 400px;
+  background-color: #4ca8bc;
+  border-radius: 32px;
+}
+
+.card .nft-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card .edit {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  cursor: pointer;
+}
+
+.card .edit a {
+  color: #fff;
+}
+
+.place {
+  background-color: rgb(144, 126, 225);
+  color: #000;
+}
+
+.nf .nft-info {
+  display: flex;
+  justify-content: space-around;
+  width: 600px;
+}
+
+.nf p {
+  padding-left: 20px;
+}
+
+.nf img {
+  border-radius: 30px;
+  width: 300px;
+  height: 300px;
+}
+
+.nf img:hover {
+  filter: drop-shadow(0 0 10px #6f52ff);
+}
+
+.ajout {
+  width: 100%;
+}
+
+.ajout button {
+  cursor: pointer;
+  background-color: #21daff;
+  width: 140px;
+  height: 50px;
+  border-radius: 15px;
+  border: none;
+  color: #000000;
+  margin-top: 100px;
+  display: flex;
+  margin: 4% auto;
+  padding-left: 30px;
+  padding-top: 19px;
+  text-align: center;
+}
+
+.ajout a {
+  text-decoration: none;
+}
+
+.ajout button:hover {
+  transform: scale(1.1);
+}
+
+.txt {
+  font-size: 20px;
+}
+
+.list {
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.list button {
+  cursor: pointer;
+  background-color: #9721ff;
+  width: 140px;
+  height: 50px;
+  border-radius: 15px;
+  border: none;
+  color: #000000;
+  margin-top: 100px;
+  display: flex;
+  margin: 4% auto;
+  padding-left: 30px;
+  padding-top: 19px;
+}
+
+.list button:hover {
+  transform: scale(1.1);
+}
+
+/*********  stastique page  *************/
+.total {
+  text-align: center;
+  font-size: 40px;
+  background-color: rgb(218, 47, 241);
+  border-radius: 10px;
+  color: black;
+  margin-top: 60px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.statistique-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+}
+
+.total p {
+  color: brown;
+}
+
+.nft-stat img {
+  border-radius: 20px;
+  width: 400px;
+  height: 400px;
+  margin-top: 10px;
+}
+
+.nft-stat img:hover {
+  filter: drop-shadow(0 0 10px #6f52ff);
+}
+
+.nft-stat-info {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  padding-top: 30px;
+}
+
+.nft-stat-max {
+  position: relative;
+  background-color: rgb(9, 196, 9);
+  border-radius: 15px;
+  width: 200px;
+  height: 40px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -20px;
+  margin-left: 100px;
+  margin-bottom: 100px;
+}
+
+.nft-stat-min {
+  position: relative;
+  background-color: red;
+  border-radius: 15px;
+  width: 200px;
+  height: 40px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -20px;
+  margin-left: 100px;
+  margin-bottom: 100px;
+}
+
+/******  nft  *********/
+.add-nft img {
+  border-radius: 20px;
+  width: 400px;
+  height: 400px;
+}
+
+.nft_description {
+  /* background-color: #2b4a50; */
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 300px;
+}
+
+.ajoutnft {
+  width: 100%;
+}
+
+.ajoutnft button {
+  cursor: pointer;
+  background-color: #21daff;
+  width: 140px;
+  height: 50px;
+  border-radius: 15px;
+  border: none;
+  color: #000000;
+  margin-top: 100px;
+  display: flex;
+  margin: 4% auto;
+  padding-left: 40px;
+  padding-top: 19px;
+  text-align: center;
+}
+
+.ajoutnft a {
+  text-decoration: none;
+}
+
+.ajoutnft button:hover {
+  transform: scale(1.1);
+}
+
+/******  Media query  *********/
+@media screen and (max-width: 600px) {
+  .contact-section {
+    /* display: block; */
+    flex-direction: column;
+  }
+
+  .contact-us {
+    width: 100%;
+  }
+
+  .newsletter {
+    width: 100%;
+  }
+
+  .top-nfts {
+    flex-direction: column;
+  }
+
+  .nft {
+    margin-top: 40px;
+  }
+
+  .explor-cards {
+    flex-direction: column;
+  }
+
+  .explor-cards-v1 {
+    flex-direction: column-reverse;
+  }
+
+  .burger-menu {
+    display: block;
+  }
+
+  .close-icon {
+    display: block;
+  }
+
+  .nav-bar {
+    display: none;
+    color: #000;
+  }
+
+  .nav-bar a {
+    color: #000;
+  }
+
+  .active1 {
+    padding-left: 25px;
+    background-color: #9721ff;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .explor-cards img {
+    width: 400px;
+    height: 400px;
+  }
+
+  .explor-cards-v1 img {
+    width: 400px;
+    height: 400px;
+  }
+
+  .grid {
+    grid-template-columns: auto;
+    margin-left: 13px;
+  }
+
+  .meta img {
+    align-items: center;
+    font-size: large;
+    width: 400px;
+  }
+
+  .container {
+    text-align: center;
+  }
+
+  .contact-section h1 {
+    margin-top: 30px;
+  }
+}
