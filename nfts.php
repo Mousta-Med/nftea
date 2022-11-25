@@ -1,17 +1,16 @@
 <?php
 include "connection.php";
 
-if (isset($_GET["show"])) {
-    $show = $_GET["show"];
-    $sql = "SELECT * FROM nft WHERE nft_collection_id = $show ";
-    $all_nft = $conn->query($sql);
+if (isset($_GET['show'])) {
+    $result = mysqli_query($conn, "SELECT * FROM nft");
+}
+if (isset($_GET['listl'])) {
+    $result = mysqli_query($conn, "SELECT * FROM nft ORDER BY nft_prix");
+}
+if (isset($_GET['listh'])) {
+    $result = mysqli_query($conn, "SELECT * FROM nft ORDER BY nft_prix DESC");
 }
 
-if (isset($_GET['delete'])) {
-    $id = $_GET['delete'];
-    mysqli_query($conn, "DELETE FROM nft WHERE nft_id = $id");
-    header('location:nft.php?show=' . $show);
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,21 +41,25 @@ if (isset($_GET['delete'])) {
                     </svg></li>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="collection.php">Collections</a></li>
-                <li><a class="place" href="nfts.php">NFTS</a></li>
+                <li><a class="place" href="nfts.php?show=<?php echo "1"; ?>">NFTS</a></li>
                 <li><a href="statistique.php">Statistique</a></li>
             </ul>
             <i class="bi bi-list burger-menu"></i>
         </div>
     </header>
-    <!-- Home section -->
+    <!-- container -->
     <section>
         <div class="meta"><img src="img/cyber.png"></div>
         <h1 class="title">NFTS</h1>
+        <form class="list-nfts">
+            <input type="submit" class="listnft" name="listl" value="List nft low to high">
+            <input type="submit" class="listnft" name="listh" value="List nft high to low">
+        </form>
 
-        <div class="grid">
+        <div class="grid-v1">
 
             <?php
-            while ($row = mysqli_fetch_assoc($all_nft)) {
+            while ($row = mysqli_fetch_assoc($result)) {
             ?>
             <div class="card">
                 <div class="nf"><img src="./img/<?php echo $row['nft_image']; ?>" alt=""> </div>
@@ -74,34 +77,28 @@ if (isset($_GET['delete'])) {
                     </p>
                 </div>
                 <div class="edit">
-                    <a href="nft.php?delete=<?php echo $row['nft_id'] ?>&show=<?= $show ?>"><svg class="rem"
-                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-trash3" viewBox="0 0 16 16">
-                            <path
-                                d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
-                        </svg></a>
-                    <a href="edite-nft.php?edite=<?= $row['nft_id'] ?>&show=<?= $show ?>"><svg class="rem"
-                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-pencil" viewBox="0 0 16 16">
-                            <path
-                                d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
-                        </svg></a>
+                    <svg class="nfticon" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="512"
+                        height="512" x="0" y="0" viewBox="0 0 64 64" style="enable-background:new 0 0 512 512"
+                        xml:space="preserve" class="">
+                        <path
+                            d="M28,28v8a1,1,0,0,1-1,1,1,1,0,0,1-.86-.5,0,0,0,0,0,0,0L22,31v5a1,1,0,0,1-2,0V28a1,1,0,0,1,1-1,1,1,0,0,1,.86.5,0,0,0,0,0,0,0L26,33V28a1,1,0,0,1,2,0Z"
+                            fill="#ffffff" data-original="#000000" class=""></path>
+                        <rect x="55" y="50" width="4" height="4" fill="#ffffff" data-original="#000000" class="">
+                        </rect>
+                        <path
+                            d="M56,33a4,4,0,0,0-3.86,3H48V28h4.14a4,4,0,1,0,0-2H48v-.93a5,5,0,0,0-2.56-4.34L42,18.83V14.41l2-2A4.05,4.05,0,1,0,42.57,11l-2.28,2.27A1,1,0,0,0,40,14v3.72l-5.61-3.11a5,5,0,0,0-1.39-.5V9.86a4,4,0,1,0-2,0v4.25a4.76,4.76,0,0,0-1.39.51L24,17.72V14a1,1,0,0,0-.29-.71L21.43,11A4.05,4.05,0,1,0,20,12.43l2,2v4.42l-2.86,1.59a1,1,0,1,0,1,1.74l10.47-5.79a3,3,0,0,1,2.86,0l11,6.11A3,3,0,0,1,46,25.07V38.93a3,3,0,0,1-1.52,2.59l-11,6.11a3,3,0,0,1-2.86,0l-11-6.11A3,3,0,0,1,18,38.93V25.07a1.59,1.59,0,0,1,.05-.45,1,1,0,0,0-2-.44,4.19,4.19,0,0,0-.09.89V26H11.86a4,4,0,1,0,0,2H16v8H11.86a4,4,0,1,0,0,2H16v.93a5,5,0,0,0,2.56,4.34L22,45.17v4.42l-2,2A4.05,4.05,0,1,0,21.43,53l2.28-2.27A1,1,0,0,0,24,50V46.28l5.61,3.11a5,5,0,0,0,1.39.5v4.25a4,4,0,1,0,2,0V49.89a4.76,4.76,0,0,0,1.39-.51L40,46.28V50a1,1,0,0,0,.29.71L42.57,53A4.05,4.05,0,1,0,44,51.57l-2-2V45.17l3.45-1.91A5,5,0,0,0,48,38.93V38h4.14A4,4,0,1,0,56,33Zm0-8a2,2,0,1,1-2,2A2,2,0,0,1,56,25ZM46,7a2,2,0,1,1-1.41,3.42h0A2,2,0,0,1,46,7ZM16,9a2,2,0,1,1,3.42,1.41h0A2,2,0,0,1,16,9ZM30,6a2,2,0,1,1,2,2A2,2,0,0,1,30,6ZM8,29a2,2,0,1,1,2-2A2,2,0,0,1,8,29ZM8,39a2,2,0,1,1,2-2A2,2,0,0,1,8,39ZM18,57a2,2,0,1,1,1.41-3.42h0A2,2,0,0,1,18,57Zm16,1a2,2,0,1,1-2-2A2,2,0,0,1,34,58Zm14-3a2,2,0,1,1-3.42-1.41h0A2,2,0,0,1,48,55Zm8-16a2,2,0,1,1,2-2A2,2,0,0,1,56,39Z"
+                            fill="#ffffff" data-original="#000000" class=""></path>
+                    </svg>
                 </div>
             </div>
             <?php
             }
             ?>
-
-
         </div>
 
 
-
-        <div class="ajoutnft"><a href="addnft.php?show=<?= $show ?>"><button>Add NFT</button></a></div>
-
-
     </section>
-
     <!-- footer -->
     <footer>
         <div class="footer">
@@ -116,7 +113,7 @@ if (isset($_GET['delete'])) {
             </div>
         </div>
     </footer>
-    <script src="js/script.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 
 </html>

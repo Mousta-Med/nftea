@@ -7,11 +7,7 @@ $min = $conn->query($sql);
 $sqll = "SELECT *FROM nft ORDER BY nft_prix DESC";
 $max = $conn->query($sqll);
 
-
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,6 +38,7 @@ $max = $conn->query($sqll);
                     </svg></li>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="collection.php">Collections</a></li>
+                <li><a href="nfts.php?show=<?php echo "1"; ?>">NFTS</a></li>
                 <li><a class="place" href="statistique.php">Statistique</a></li>
             </ul>
             <i class="bi bi-list burger-menu"></i>
@@ -83,7 +80,7 @@ $max = $conn->query($sqll);
                     </div>
                     <img src="./img/<?php echo $row['nft_image']; ?>" alt="">
                     <div class="nft-stat-min">
-                        <p>Moins Chere</p>
+                        <p>Cheaper</p>
                     </div>
                 </div>
                 <?php
@@ -112,7 +109,7 @@ $max = $conn->query($sqll);
                     </div>
                     <img src="./img/<?php echo $row['nft_image']; ?>" alt="">
                     <div class="nft-stat-max">
-                        <p>Plus Chere</p>
+                        <p>more expensive</p>
                     </div>
                 </div>
             </div>

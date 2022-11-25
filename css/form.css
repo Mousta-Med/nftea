@@ -4,7 +4,7 @@
 }
 /*********** add collection *************/
 body {
-  background-color: darkmagenta;
+  background-color: #542e71;
   font-family: "Fragment Mono", monospace;
 }
 .add-collection {
@@ -18,7 +18,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: blueviolet;
+  background-color: #6a66a3;
   width: 300px;
   border-radius: 20px;
 }
@@ -36,33 +36,35 @@ body {
 .back {
   width: 150px;
   cursor: pointer;
-  background-color: rgb(219, 71, 71);
+  background-color: #b3cbb9;
   border: none;
   padding: 5px;
   border-radius: 15px;
 }
 .back:hover {
   background-color: black;
-  color: aliceblue;
+  color: #b3cbb9;
   transition: ease-in 0.25s;
 }
 .submit {
   cursor: pointer;
-  background-color: rgb(18, 200, 18);
+  background-color: #84a9c0;
 }
 .submit:hover {
   background-color: black;
-  color: aliceblue;
+  color: #84a9c0;
   transition: ease-in 0.25s;
+}
+input[type="text"] {
+  background-color: #ddd8b8;
 }
 input[type="file"] {
   display: none;
 }
 .img-upload {
-  background-color: #fff;
+  background-color: #ddd8b8;
   display: block;
   cursor: pointer;
-
   border-radius: 15px;
   width: 200px;
   height: 25px;

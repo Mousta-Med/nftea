@@ -27,6 +27,7 @@
                     </svg></li>
                 <li><a class="place" href="index.php">Home</a></li>
                 <li><a href="collection.php">Collections</a></li>
+                <li><a href="nfts.php?show=<?php echo "1"; ?>">NFTS</a></li>
                 <li><a href="statistique.php">Statistique</a></li>
             </ul>
             <i class="bi bi-list burger-menu"></i>
@@ -109,8 +110,8 @@
                             <input class="input" type="text" placeholder="Enter your name" required>
                             <input class="input" type="email" placeholder="Enter your email" required>
                             <textarea class="input-message" name="" placeholder="Enter your message" id="" cols="30"
-                                rows="10"></textarea >
-                            <input  class="input-submit" type="submit" value="submite">    
+                                rows="10"></textarea>
+                            <input class="input-submit" type="submit" value="submite">
                         </form>
                     </div>
                 </div>
