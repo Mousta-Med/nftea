@@ -1,13 +1,13 @@
 <?php
 include "connection.php";
 
-if (isset($_GET['show'])) {
+if (!isset($_GET['listl'])) {
     $result = mysqli_query($conn, "SELECT * FROM nft");
 }
-if (isset($_GET['listl'])) {
+if (isset($_POST['listl'])) {
     $result = mysqli_query($conn, "SELECT * FROM nft ORDER BY nft_prix");
 }
-if (isset($_GET['listh'])) {
+if (isset($_POST['listh'])) {
     $result = mysqli_query($conn, "SELECT * FROM nft ORDER BY nft_prix DESC");
 }
 
@@ -41,7 +41,7 @@ if (isset($_GET['listh'])) {
                     </svg></li>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="collection.php">Collections</a></li>
-                <li><a class="place" href="nfts.php?show=<?php echo "1"; ?>">NFTS</a></li>
+                <li><a class="place" href="nfts.php">NFTS</a></li>
                 <li><a href="statistique.php">Statistique</a></li>
             </ul>
             <i class="bi bi-list burger-menu"></i>
@@ -51,7 +51,7 @@ if (isset($_GET['listh'])) {
     <section>
         <div class="meta"><img src="img/cyber.png"></div>
         <h1 class="title">NFTS</h1>
-        <form class="list-nfts">
+        <form class="list-nfts" method="post">
             <input type="submit" class="listnft" name="listl" value="List nft low to high">
             <input type="submit" class="listnft" name="listh" value="List nft high to low">
         </form>

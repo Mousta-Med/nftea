@@ -1,10 +1,10 @@
 <?php
 
 include("connection.php");
-$sql = "SELECT *FROM nft ORDER BY nft_prix";
+$sql = "SELECT * FROM nft ORDER BY nft_prix";
 $min = $conn->query($sql);
 
-$sqll = "SELECT *FROM nft ORDER BY nft_prix DESC";
+$sqll = "SELECT * FROM nft ORDER BY nft_prix DESC";
 $max = $conn->query($sqll);
 
 ?>
@@ -38,7 +38,7 @@ $max = $conn->query($sqll);
                     </svg></li>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="collection.php">Collections</a></li>
-                <li><a href="nfts.php?show=<?php echo "1"; ?>">NFTS</a></li>
+                <li><a href="nfts.php">NFTS</a></li>
                 <li><a class="place" href="statistique.php">Statistique</a></li>
             </ul>
             <i class="bi bi-list burger-menu"></i>

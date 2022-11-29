@@ -27,7 +27,7 @@
                     </svg></li>
                 <li><a class="place" href="index.php">Home</a></li>
                 <li><a href="collection.php">Collections</a></li>
-                <li><a href="nfts.php?show=<?php echo "1"; ?>">NFTS</a></li>
+                <li><a href="nfts.php">NFTS</a></li>
                 <li><a href="statistique.php">Statistique</a></li>
             </ul>
             <i class="bi bi-list burger-menu"></i>
