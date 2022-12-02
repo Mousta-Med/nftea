@@ -327,6 +327,11 @@ h4 {
   background-color: #000;
   border-radius: 32px;
   border: 2px solid #7e1f86;
+  transition: ease-in-out 0.5s;
+}
+.card:hover {
+  padding: 20px;
+  transition: ease-in-out 0.2s;
 }
 
 .card .nft-info {
